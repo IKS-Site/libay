@@ -333,13 +333,16 @@ input:focus{
 /* ================= BUTTON ================= */
 
 .actionBtn{
-  width:100%;
 
-  padding:14px;
+  width:auto;
+
+  min-width:170px;
+
+  padding:12px 20px;
 
   border:none;
 
-  border-radius:15px;
+  border-radius:14px;
 
   color:white;
 
@@ -349,7 +352,15 @@ input:focus{
 
   transition:.3s;
 
-  font-size:15px;
+  font-size:14px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
 }
 
 .cameraBtn{
@@ -812,11 +823,11 @@ tr:hover td{
 .loginBox button{
   width:100%;
 
-  padding:14px;
+  padding:16px;
 
   border:none;
 
-  border-radius:14px;
+  border-radius:16px;
 
   background:
   linear-gradient(
@@ -827,13 +838,29 @@ tr:hover td{
 
   color:white;
 
-  font-size:16px;
+  font-size:17px;
 
   font-weight:bold;
 
   cursor:pointer;
+
+  transition:0.2s;
+
+  box-shadow:
+  0 8px 20px rgba(37,99,235,0.35);
+
+  -webkit-tap-highlight-color:transparent;
+
+  touch-action:manipulation;
+
+  user-select:none;
 }
 
+.loginBox button:active{
+
+  transform:scale(0.97);
+
+}
 
 .loginSub{
   color:#cbd5e1;
@@ -868,6 +895,8 @@ tr:hover td{
   font-size:14px;
   margin-bottom:5px;
 }
+
+
 </style>
 </head>
 
@@ -1140,6 +1169,8 @@ tr:hover td{
   </div>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
 
@@ -1512,14 +1543,6 @@ function loginSystem(){
 
 }
 
-/* ================= AUTO LOAD ================= */
-
-window.onload = function(){
-
-  loadIssue();
-  loadReturn();
-
-}
 
 /* ================= PRINT ISSUE ================= */
 
@@ -1863,8 +1886,13 @@ async function downloadReturnPDF(){
 
 }
 
+document.addEventListener("DOMContentLoaded", function(){
+
+  loadIssue();
+  loadReturn();
+
+});
+
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-</div>
 </body>
 </html>
